@@ -1,0 +1,130 @@
+{
+    "intents": [
+      {
+        "intent": "create_db2_instance",
+        "trigger_phrases": [
+          "create db2 instance",
+          "how to create a db2 instance",
+          "setup db2",
+          "create a database instance",
+          "db2 setup guide",
+          "start with db2 on cloud"
+        ],
+        "conversation_flow": [
+          {
+            "step": 1,
+            "chatbot": "Step 1: Access the Catalog. Click on 'Catalog' in the left navigation bar. Let me know when you're done.",
+            "follow_up": {
+              "done_prompt": "Done with the first step?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Great! Now, Step 2: Search for Db2. Use the search bar to find 'Db2' under the Databases category. Let me know once you complete this step."
+                },
+                "help": {
+                  "chatbot": "To access the catalog, click the three horizontal lines (menu) in the top-left corner and select 'Catalog'. Do you see the 'Databases' section?"
+                }
+              }
+            }
+          },
+          {
+            "step": 2,
+            "chatbot": "Step 2: Search for Db2. Use the search bar to find 'Db2' under the Databases category. Let me know once you complete this step.",
+            "follow_up": {
+              "done_prompt": "Done with the second step?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Awesome! Step 3: Choose a Pricing Plan. Select a plan based on your needs. Options are Lite (free) or Standard/Enterprise (paid). Let me know once you're done selecting a plan."
+                },
+                "help": {
+                  "chatbot": "If you can't find Db2 in the search bar, make sure you're typing it correctly, and ensure the Databases category is visible. Would you like me to guide you to the exact page?"
+                }
+              }
+            }
+          },
+          {
+            "step": 3,
+            "chatbot": "Step 3: Choose a Pricing Plan. Select a plan based on your needs: Lite (free-tier with limited resources) or Standard/Enterprise (paid options for production use). Let me know when you've selected a plan.",
+            "follow_up": {
+              "done_prompt": "Done selecting the pricing plan?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Step 4: Configure Instance Details. Provide the following information: Instance Name (a unique name), Resource Group (select or create one), and Region (choose where to deploy). Let me know once you've completed this step."
+                },
+                "help": {
+                  "chatbot": "If you're unsure which pricing plan to choose, you can start with the Lite plan for testing. Would you like more details on the plans?"
+                }
+              }
+            }
+          },
+          {
+            "step": 4,
+            "chatbot": "Step 4: Configure Instance Details. Provide the following information:\n- Instance Name: Enter a unique name.\n- Resource Group: Select or create a group.\n- Region: Choose where you want the instance deployed. Let me know once you're done.",
+            "follow_up": {
+              "done_prompt": "Have you configured the instance details?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Great! Step 5: Create the Instance. Click 'Create' to deploy the Db2 instance. It might take a few minutes. Let me know once the instance is created."
+                },
+                "help": {
+                  "chatbot": "If you're stuck on instance details, remember: Instance Name must be unique, Resource Group organizes resources, and Region determines where your instance will run. Need help selecting these?"
+                }
+              }
+            }
+          },
+          {
+            "step": 5,
+            "chatbot": "Step 5: Create the Instance. Click 'Create' to deploy the Db2 instance. It might take a few minutes. Let me know once the instance is created.",
+            "follow_up": {
+              "done_prompt": "Has the instance been created?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Congratulations! Step 6: Verify the Instance. Go to the Resource List from the navigation menu. Locate your Db2 instance and click to open it. Let me know once you've verified it."
+                },
+                "help": {
+                  "chatbot": "If the instance is not being created, ensure that all required fields are filled correctly. Also, check your IBM Cloud account limits and available resources. Need more help?"
+                }
+              }
+            }
+          },
+          {
+            "step": 6,
+            "chatbot": "Step 6: Verify the Instance. Go to the Resource List from the navigation menu. Locate your Db2 instance and click to open it. Let me know once you've verified it.",
+            "follow_up": {
+              "done_prompt": "Have you verified the instance?",
+              "user_response": {
+                "done": {
+                  "chatbot": "You're all set! Your Db2 instance is ready to use. Would you like to learn about managing or scaling the instance?"
+                },
+                "help": {
+                  "chatbot": "If you can't find the instance in the Resource List, make sure it has been created successfully. If it still doesn't appear, try refreshing the page or contact IBM support."
+                }
+              }
+            }
+          }
+        ],
+        "troubleshooting": [
+          {
+            "issue": "Cannot find Db2 in the catalog",
+            "solution": "Make sure you're searching under the 'Databases' category. If it's still not visible, check if your IBM Cloud account has the necessary permissions to access this service."
+          },
+          {
+            "issue": "Instance creation failed",
+            "solution": "Ensure that all required fields (Instance Name, Resource Group, and Region) are filled in correctly. Check your account limits and resources, and try again."
+          },
+          {
+            "issue": "Instance not appearing in Resource List",
+            "solution": "Refresh the Resource List page, and ensure the instance creation process is complete. If the problem persists, check the Activity Logs for errors."
+          },
+          {
+            "issue": "How do I connect to my Db2 instance?",
+            "solution": "Go to your Db2 instance, find the connection details, and use a database client or CLI to connect. You may need credentials provided during setup."
+          },
+          {
+            "issue": "How do I reset my Db2 credentials?",
+            "solution": "Navigate to your Db2 instance settings in IBM Cloud and look for the 'Reset Credentials' option. Follow the prompts to generate new credentials."
+          }
+        ]
+      }
+    ]
+  }
+  

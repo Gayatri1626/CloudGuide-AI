@@ -1,0 +1,103 @@
+{
+    "intents": [
+      {
+        "intent": "scale_db2_instance",
+        "trigger_phrases": [
+          "scale db2 instance","how to scale db2 instance","how to scale","increase db2 resources","upgrade db2 instance","modify db2 instance size"
+        ],
+        "conversation_flow": [
+          {
+            "step": 1,
+            "chatbot": "Step 1: Access the Db2 Instance. Open your Db2 instance from the Resource List. Let me know once you've accessed it.",
+            "follow_up": {
+              "done_prompt": "Have you opened the instance?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Great! Step 2: Navigate to Instance Settings. Click on the 'Settings' or 'Configuration' tab in the instance dashboard. Let me know once you've reached the tab."
+                },
+                "help": {
+                  "chatbot": "To open the instance, go to the Resource List in the navigation menu, find your Db2 instance, and click on it. Do you need help finding it?"
+                }
+              }
+            }
+          },
+          {
+            "step": 2,
+            "chatbot": "Step 2: Navigate to Instance Settings. Click on the 'Settings' or 'Configuration' tab in the instance dashboard. Let me know once you've reached the tab.",
+            "follow_up": {
+              "done_prompt": "Have you reached the Instance Settings tab?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Awesome! Step 3: Adjust the Scaling Options. Locate the 'Compute & Storage' section, then select the new instance size and resource allocation. Let me know once you've made your selections."
+                },
+                "help": {
+                  "chatbot": "If you can't find the 'Settings' tab, ensure you're in the correct instance dashboard. It should be listed in the top menu. Need more guidance?"
+                }
+              }
+            }
+          },
+          {
+            "step": 3,
+            "chatbot": "Step 3: Adjust the Scaling Options. Locate the 'Compute & Storage' section, then select the new instance size and resource allocation. Let me know once you've made your selections.",
+            "follow_up": {
+              "done_prompt": "Have you selected the new instance size?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Great! Step 4: Confirm and Apply Changes. Click 'Apply' or 'Save Changes' to initiate the scaling process. This may take a few minutes. Let me know once the process has started."
+                },
+                "help": {
+                  "chatbot": "Ensure that your selected resources meet your requirements and that you have the necessary permissions. Need further assistance?"
+                }
+              }
+            }
+          },
+          {
+            "step": 4,
+            "chatbot": "Step 4: Confirm and Apply Changes. Click 'Apply' or 'Save Changes' to initiate the scaling process. This may take a few minutes. Let me know once the process has started.",
+            "follow_up": {
+              "done_prompt": "Has the scaling process started?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Good job! Step 5: Verify the Scaling. Go to the 'Instance Overview' section and check if the new resource allocations are reflected. Let me know once you've verified it."
+                },
+                "help": {
+                  "chatbot": "If the changes aren't applying, try refreshing the page or checking your account limits. Need help troubleshooting?"
+                }
+              }
+            }
+          },
+          {
+            "step": 5,
+            "chatbot": "Step 5: Verify the Scaling. Go to the 'Instance Overview' section and check if the new resource allocations are reflected. Let me know once you've verified it.",
+            "follow_up": {
+              "done_prompt": "Have you verified the new instance settings?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Congratulations! Your Db2 instance has been successfully scaled. Would you like to learn about monitoring resource usage?"
+                },
+                "help": {
+                  "chatbot": "If your changes aren't reflected, check the Activity Logs for errors or try reapplying the scaling settings. Would you like assistance with troubleshooting?"
+                }
+              }
+            }
+          }
+        ],
+        "troubleshooting": [
+          {
+            "issue": "Cannot find the Settings tab",
+            "solution": "Ensure you are in the correct Db2 instance dashboard. Look for the 'Settings' or 'Configuration' option in the top menu. Refresh the page if needed."
+          },
+          {
+            "issue": "Scaling changes not applying",
+            "solution": "Verify that the selected resource allocation is within your allowed limits and that you have the necessary permissions to modify instance settings."
+          },
+          {
+            "issue": "New instance size not reflected",
+            "solution": "Refresh the page or check the Activity Logs for errors. If necessary, retry the scaling process."
+          }
+        ]
+      }
+    ]
+  }
+  
+  

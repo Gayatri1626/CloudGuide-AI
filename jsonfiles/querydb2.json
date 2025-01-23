@@ -1,0 +1,108 @@
+{
+    "intents": [
+      {
+        "intent": "query_db2_database",
+        "trigger_phrases": [
+          "query db2 database",
+          "how to query data in db2",
+          "write and execute sql in db2",
+          "run sql queries on db2 instance"
+        ],
+        "conversation_flow": [
+          {
+            "step": 1,
+            "chatbot": "Step 1: Access the Query Editor. Open your Db2 instance from the Resource List and navigate to the 'Query Editor' tab. Let me know once you've accessed it.",
+            "follow_up": {
+              "done_prompt": "Have you opened the Query Editor?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Great! Step 2: Write a Query. Use SQL commands to interact with the database. Here are some examples you can try:\n- Create a Table:\n```\nCREATE TABLE employees (\n    id INT PRIMARY KEY,\n    name VARCHAR(100),\n    department VARCHAR(50),\n    salary DECIMAL(10, 2)\n);\n```\n- Insert Data:\n```\nINSERT INTO employees (id, name, department, salary)\nVALUES (1, 'John Doe', 'Engineering', 75000.00);\n```\n- Retrieve Data:\n```\nSELECT * FROM employees;\n```\nLet me know once you've written your query."
+                },
+                "help": {
+                  "chatbot": "To find the Query Editor, open your Db2 instance, and look for the 'Query Editor' tab in the top navigation bar. If it’s not visible, ensure your instance is properly configured. Need help?"
+                }
+              }
+            }
+          },
+          {
+            "step": 2,
+            "chatbot": "Step 2: Write a Query. Use SQL commands to interact with the database. Here are some examples you can try:\n- Create a Table:\n```\nCREATE TABLE employees (\n    id INT PRIMARY KEY,\n    name VARCHAR(100),\n    department VARCHAR(50),\n    salary DECIMAL(10, 2)\n);\n```\n- Insert Data:\n```\nINSERT INTO employees (id, name, department, salary)\nVALUES (1, 'John Doe', 'Engineering', 75000.00);\n```\n- Retrieve Data:\n```\nSELECT * FROM employees;\n```\nLet me know once you've written your query.",
+            "follow_up": {
+              "done_prompt": "Have you written the query?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Good! Step 3: Execute the Query. Click the 'Run' button in the query editor interface to execute your SQL query. Let me know once you've executed it."
+                },
+                "help": {
+                  "chatbot": "Make sure your SQL syntax is correct before running the query. Would you like me to help you write or debug your query?"
+                }
+              }
+            }
+          },
+          {
+            "step": 3,
+            "chatbot": "Step 3: Execute the Query. Click the 'Run' button in the query editor interface to execute your SQL query. Let me know once you've executed it.",
+            "follow_up": {
+              "done_prompt": "Have you executed the query?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Great! Step 4: View Results. The results of your query will be displayed in the query editor interface. Let me know once you've reviewed the results."
+                },
+                "help": {
+                  "chatbot": "If your query doesn't run successfully, check the error message for details. You might need to debug your query syntax or check table existence. Need help with troubleshooting?"
+                }
+              }
+            }
+          },
+          {
+            "step": 4,
+            "chatbot": "Step 4: View Results. The results of your query will be displayed in the query editor interface. Let me know once you've reviewed the results.",
+            "follow_up": {
+              "done_prompt": "Have you reviewed the query results?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Awesome! Step 5: Export Results (Optional). If needed, use the 'Export' button in the query editor to save your query results in formats like CSV. Let me know once you've exported the results, or if you're done."
+                },
+                "help": {
+                  "chatbot": "If you don't see the results, check whether the query was executed successfully or refresh the page. Need assistance in finding the query results?"
+                }
+              }
+            }
+          },
+          {
+            "step": 5,
+            "chatbot": "Step 5: Export Results (Optional). If needed, use the 'Export' button in the query editor to save your query results in formats like CSV. Let me know once you've exported the results, or if you're done.",
+            "follow_up": {
+              "done_prompt": "Have you exported the query results or completed the task?",
+              "user_response": {
+                "done": {
+                  "chatbot": "Congratulations! You've successfully queried the database and handled the results. Would you like to explore more advanced querying techniques or database features?"
+                },
+                "help": {
+                  "chatbot": "If you can't find the 'Export' button, ensure you're in the query editor interface. Refresh the page if necessary. Need more help with exporting?"
+                }
+              }
+            }
+          }
+        ],
+        "troubleshooting": [
+          {
+            "issue": "Cannot find the Query Editor",
+            "solution": "Ensure you are in the correct Db2 instance dashboard. Look for the 'Query Editor' tab in the top navigation menu. Refresh the page if needed."
+          },
+          {
+            "issue": "Query execution failed",
+            "solution": "Check the SQL syntax for errors. Ensure the table and column names are correct and exist in the database. Review error messages for specific issues."
+          },
+          {
+            "issue": "No query results displayed",
+            "solution": "Refresh the page and re-execute the query. Ensure the query is valid and retrieves data. Verify that the table contains data if querying it."
+          },
+          {
+            "issue": "Export button not working",
+            "solution": "Ensure the query results are displayed before exporting. Check your browser settings or try using another browser. Contact support if the issue persists."
+          }
+        ]
+      }
+    ]
+  }
