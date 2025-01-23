@@ -34,5 +34,5 @@ CloudGuide AI is an interactive voice-enabled chatbot designed to assist users w
 ### Steps
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-repo/CloudGuideAI.git
-   cd CloudGuideAI
+   git clone https://github.com/your-repo/CloudGuide-AI.git
+   cd CloudGuide-AI
