@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IBM Cloud Solutions | Innovate with Confidence</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="static/style.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
+        <div class="container">
+            <a class="navbar-brand" href="#">IBM Cloud</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#solutions">Solutions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <div class="container">
+            <h1>Transform Your Business with IBM Cloud</h1>
+            <p class="lead">Secure, scalable, and intelligent cloud solutions for enterprises</p>
+            <a href="#services" class="btn btn-light mt-3">Explore Services</a>
+        </div>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services" id="services">
+        <div class="container">
+            <h2 class="text-center mb-5">Our Cloud Services</h2>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Cloud Computing</h5>
+                            <p>Flexible and powerful computing resources</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <div class="card-body">
+                            <h5 class="card-title">AI & Machine Learning</h5>
+                            <p>Advanced intelligent solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card service-card">
+                        <div class="card-body">
+                            <h5 class="card-title">Blockchain</h5>
+                            <p>Secure and transparent transactions</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        <div class="container">
+            <p>&copy; 2024 IBM Cloud. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot from original document -->
+    <!-- Floating Chatbot Button -->
+    <button class="chatbot-button" id="chatbot-toggle">💬</button>
+
+    <!-- Helper Text -->
+    <div class="chatbot-helper-text" id="chatbot-helper-text">I am here to help you!</div>
+
+    <!-- Chat Container -->
+    <div class="chat-container" id="chat-container">
+        <div class="chat-header">
+            CloudGuide AI
+            <button class="reset-button" id="reset-conversation" title="Reset Conversation">
+                ↻
+            </button>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                <div class="message-content">
+                    Hello Gayatri! 👋 I'm your Virtual Cloud Assistant, here to help you with IBM Cloud services. Would you like assistance today? (Please respond with Yes or No)
+                </div>
+            </div>
+        </div>
+        
+        <!-- Typing Indicator -->
+        <div class="typing-indicator" id="typing-indicator">
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+            <div class="typing-dot"></div>
+        </div>
+
+        <div class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button class="btn" onclick="sendMessage()">Send</button>
+            <button class="btn voice-btn" id="voice-btn" title="Voice Input">🎤</button>
+        </div>
+    </div>
+
+
+    <!-- Include original chatbot script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="static/bot.js"></script>
+</body>
+</html>

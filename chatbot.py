@@ -1,10 +1,9 @@
-from flask import Flask, request, render_template, jsonify,Response
+from flask import Flask, request, render_template, jsonify
 import json
 import os
 from pathlib import Path
-from test import generate_audio_stream
 
-app = Flask(__name__)
+app = Flask(__name__,static_folder='static')
 
 # Load all JSON files from the jsonfiles directory
 def load_intents():
@@ -59,7 +58,6 @@ def find_intent(user_input):
 
     return None
 
-
 def get_step_response(intent, step_number):
     for step in intent.get('conversation_flow', []):
         if step['step'] == step_number:
@@ -68,7 +66,6 @@ def get_step_response(intent, step_number):
                 'follow_up': step.get('follow_up', {})
             }
     return None
-
 
 def handle_troubleshooting(intent, issue):
     if 'troubleshooting' in intent:
@@ -79,8 +76,7 @@ def handle_troubleshooting(intent, issue):
 
 @app.route('/')
 def home():
-    return render_template('index.html')
-
+    return render_template('web.html')
 
 @app.route('/get_response', methods=['POST'])
 def get_response():
@@ -122,7 +118,7 @@ def get_response():
         if state['current_stage'] == 'init':
             if 'yes' in user_input:
                 state['current_stage'] = 'category_selection'
-                response_text = "Great! Here are the available categories:\n\n• Database Services\n• Compute Services\n• AI Services\n• Storage Services\n\nWhich category would you like to explore?"
+                response_text = "Great! Here are the available categories:\n\n Database Services\n Compute Services\n AI Services\n Storage Services\n\nWhich category would you like to explore?"
             elif 'no' in user_input:
                 response_text = "No problem! Let me know if you need help later."
             else:
@@ -130,7 +126,7 @@ def get_response():
         elif state['current_stage'] == 'category_selection':
             if 'database' in user_input:
                 state['current_stage'] = 'service_selection'
-                response_text = "Here are the available Database Services:\n\n• DB2\n• Cloudant\n• MongoDB\n\nWhich specific service would you like to work with?"
+                response_text = "Here are the available Database Services:\n\n DB2\n Cloudant\n MongoDB\n\nWhich specific service would you like to work with?"
             else:
                 response_text = "I couldn't identify the category. Please choose from Database, Compute, AI, or Storage Services."
         elif state['current_stage'] == 'service_selection':
@@ -171,30 +167,22 @@ def get_response():
             else:
                 response_text = "Please respond with 'yes', 'done', or 'help' to proceed."
         elif state['current_stage'] == 'operation_completion':
-            response_text = "Process complete. Let me know if you need further assistance."
+            new_intent = find_intent(user_input)
+            if new_intent:
+                # Automatically switch to the new intent
+                state['current_intent'] = new_intent
+                state['current_stage'] = 'intent_flow'
+                state['current_step'] = 1
+                response_text = new_intent['conversation_flow'][0]['chatbot']
+            else:
+                # If no specific intent, guide back to service selection
+                state['current_stage'] = 'category_selection'
+                response_text = "Great! Here are the available categories:\n\n Database Services\n Compute Services\n AI Services\n Storage Services\n\nWhich category would you like to explore?"
         else:
             response_text = "I didn't understand. Could you please rephrase?"
 
-    # Generate speech response if requested
-    is_speech_required = data.get("speech", False)
-    audio_response = None
-
-    if is_speech_required:
-        audio_stream = generate_audio_stream(response_text)
-        if audio_stream:
-            audio_response = Response(audio_stream, mimetype='audio/mp3')
-        else:
-            return jsonify({'response': response_text, 'error': "Failed to generate speech."})
-
-    # Return combined response
-    if audio_response:
-        # Include text response as a custom header
-        audio_response.headers['X-Response-Text'] = response_text
-        return audio_response
-
     # Default text response
     return jsonify({'response': response_text})
-
 
 if __name__ == '__main__':
     app.run(debug=True)
