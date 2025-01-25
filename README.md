@@ -1,38 +1,43 @@
-# CloudGuide AI Chatbot
+# IBM Cloud Solutions Chatbot
 
-CloudGuide AI is an interactive voice-enabled chatbot designed to assist users with IBM Cloud services. It supports text and voice input, and it responds with text and speech for a seamless user experience.
+## Overview
+This project is a web-based AI chatbot designed to assist users with IBM Cloud services, providing guided interactions for various cloud service operations.
 
 ## Features
-
-- **Text Input:** Users can type queries and receive responses in the chat interface.
-- **Voice Input:** Users can speak their queries, and the chatbot processes them using the Web Speech API.
-- **Speech Response:** The chatbot uses IBM Watson Text-to-Speech to generate audio responses.
-- **Interactive UI:** A floating chatbot button, intuitive design, and seamless toggle between voice and text input.
-
----
+- Interactive conversational interface
+- Step-by-step guidance for cloud service operations
+- Dynamic intent-based response system
+- Voice input support
+- Conversation history preservation
 
 ## Technologies Used
+- Frontend: HTML, CSS, Bootstrap, JavaScript
+- Backend: Python, Flask
+- Key Libraries:
+  - Web Speech API for voice input
+  - LocalStorage for conversation history
 
-### Backend
-- **Python (Flask):** For handling user queries, maintaining conversation states, and managing chatbot logic.
-- **IBM Watson Text-to-Speech:** Converts text responses to speech.
-- **Speech Recognition:** Processes user voice inputs.
+## Project Structure
+- `app.py`: Flask backend with chatbot logic
+- `web.html`: Frontend interface
+- `bot.js`: Client-side JavaScript for chatbot interactions
+- `jsonfiles/`: Conversation intent configuration files
 
-### Frontend
-- **HTML/CSS/JavaScript:** Creates an interactive and responsive user interface.
-- **Web Speech API:** Converts voice input to text for processing by the chatbot.
-- **Bootstrap 5.3.0:** Provides a modern, responsive design.
+## Current Capabilities
+- Database Services Navigation
+- DB2 Instance Management
+  - Create DB2 instances
+  - Scale DB2 instances
+- Guided step-by-step interactions
+- Troubleshooting support
 
+## Installation
+1. Clone the repository
+2. Install dependencies: `pip install flask`
+3. Run the application: `python app.py`
 
-## Installation and Setup
+## Contributing
+Contributions are welcome. Please submit pull requests or open issues for improvements.
 
-### Prerequisites
-1. Python 3.7 or later
-2. Pip (Python package manager)
-3. IBM Cloud account for accessing Watson services
-
-### Steps
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repo/CloudGuide-AI.git
-   cd CloudGuide-AI
+## License
+[Specify your license here]
